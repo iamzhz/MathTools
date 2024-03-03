@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Tools - 因数</title>
+    <link rel="stylesheet" href="https://res.wx.qq.com/t/wx_fed/weui-source/res/2.5.16/weui.min.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/weui.js/res/1.2.21/weui.min.js"></script>
+    <script type="text/javascript" src="./tools.js"></script>
+</head>
+<body>
+    <div class="weui-cell"> 
+        <div class="weui-cell__hd"><label class="weui-label">数字</label></div> 
+        <div class="weui-cell__bd"> 
+        <input type="number" class="weui-input" id="num" placeholder="输入要求因数的整数" emptytips="输入要求因数的整数" notmatchtips="请输入正确的手机号"> 
+    </div> <div class="weui-cell__ft"> 
+    </div> </div>
+    <button class="weui-btn weui-btn_primary" onclick="showFactors(document.getElementById('num').value)">确定</button>
+    <h2 id="result" align="center"></h2>
+    <script>
+        function showFactors(number) {
+            const result = document.getElementById('result');
+            result.innerHTML = '';
+            number = parseInt(number);
+            let factors = factor(number);
+            if (factors.length == 2) weui.alert('这是个素数');
+            for (let fa of factors) {
+                result.innerHTML += '<li>' + fa + '</li>';
+            }
+        }
+    </script>
+</body>
+</html>
